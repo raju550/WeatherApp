@@ -1,0 +1,25 @@
+{% extends 'base.html' %} 
+
+{% block content %}
+
+
+
+</br>
+    {% if zipcode %}
+        {{zipcode}}
+    {% endif %}
+    {% if api %}
+        {% if api == 'error...'%}
+            there is not found, please try again
+        {% else %}
+        <div class="jumbotron {{ category_color }}">
+            <h1 class="display-4">{{ api.0.Category.Name }}</h1>
+            <p class="lead">Metropolitan Washington AQI: {{ api.0.AQI }}</p>
+
+            <p>{{ category_description }}</p>
+        </div>
+        
+        {% endif %}
+    {% endif %}
+
+{% endblock %}
